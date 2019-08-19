@@ -21,7 +21,8 @@ module.exports = {
             type: "object",
             properties: {
               module: { type: "string" },
-              name: { type: "string" }
+              name: { type: "string" },
+              autofix: { type: "boolean" }
             },
             required: ["module", "name"],
             additionalProperties: false
@@ -59,6 +60,9 @@ module.exports = {
                 foundOption.module
               }'s default export is "${foundOption.name}"`,
               fix(fixer) {
+                if (foundOption.autofix === false) {
+                  return;
+                }
                 return fixer.replaceText(
                   foundImportDefaultSpecifier,
                   foundOption.name

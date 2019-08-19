@@ -21,11 +21,17 @@ In `.eslintrc`:
       "warn",
       {
         "modules": "classnames",
-        "name": "classNames"
+        "name": "classNames",
+        "autofix": false // disable autofix
       },
       {
         "modules": "react",
-        "name": "React"
+        "name": "React" // as autofix by default
+      },
+      {
+        "modules": "react-dom",
+        "name": "ReactDOM",
+        "autofix": true // enable autofix (for clarity)
       }
     ]
   }
