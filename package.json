@@ -1,0 +1,11 @@
+{
+  "name": "eslint-plugin-preferred-export-default-naming",
+  "description": "set preferred name for default imports",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Ayc0",
+    "email": "ayc0.benj@gmail.com"
+  },
+  "main": "./index.js"
+}
