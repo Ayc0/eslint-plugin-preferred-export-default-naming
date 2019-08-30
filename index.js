@@ -54,28 +54,38 @@ module.exports = {
               return;
             }
 
-            const report = specifier =>
-              context.report({
-                node: specifier,
-                loc: specifier.loc,
-                message: `The preferred name of the ${foundOption.module}'s default export is "${foundOption.name}"`,
-                fix(fixer) {
-                  if (foundOption.autofix === false) {
-                    return;
-                  }
-                  return fixer.replaceText(specifier, foundOption.name);
+            context.report({
+              node: foundImportDefaultSpecifier,
+              loc: foundImportDefaultSpecifier.loc,
+              message: `The preferred name of the ${foundOption.module}'s default export is "${foundOption.name}"`,
+              fix(fixer) {
+                if (foundOption.autofix === false) {
+                  return;
                 }
-              });
-
-            report(foundImportDefaultSpecifier);
-
-            context
-              .getDeclaredVariables(foundImportDefaultSpecifier)
-              .forEach(variable => {
-                variable.references.forEach(reference => {
-                  report(reference.identifier);
-                });
-              });
+                return [
+                  // Fix import
+                  fixer.replaceText(
+                    foundImportDefaultSpecifier,
+                    foundOption.name
+                  ),
+                  // Fix every usage of this import
+                  ...context
+                    .getDeclaredVariables(foundImportDefaultSpecifier)
+                    .reduce(
+                      (references, variable) => [
+                        ...references,
+                        ...variable.references.map(reference =>
+                          fixer.replaceText(
+                            reference.identifier,
+                            foundOption.name
+                          )
+                        )
+                      ],
+                      []
+                    )
+                ];
+              }
+            });
           }
         };
       }

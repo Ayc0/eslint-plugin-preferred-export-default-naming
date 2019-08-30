@@ -1,3 +1,7 @@
+## 1.1.1
+
+Only generate 1 report per import per file and autofix every variable at the same time to avoid desynchronization
+
 ## 1.1.0
 
 Display warning / autofix variables that corresponds to the wrongly named import statements
