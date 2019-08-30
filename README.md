@@ -3,7 +3,11 @@
 This ESLint rule enforces preferred names for default exports
 
 ```js
-/* eslint preferred-export-default-naming/preferred-export-default-naming: ["error", { "module": "react", "name": "React" }] */
+/*
+  eslint preferred-export-default-naming/preferred-export-default-naming: [
+    "error", { "module": "react", "name": "React" }
+  ]
+*/
 
 import react from "react"; // this will throw an error
 import React from "react"; // this won't throw an error
