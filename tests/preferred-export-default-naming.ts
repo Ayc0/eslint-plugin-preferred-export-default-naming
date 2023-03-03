@@ -20,7 +20,7 @@ const suites: Array<{
     ],
   },
   {
-    file: "allowed-namespace.ts",
+    file: "prefer-default-instead-of-namespace.ts",
     code: "import * as React from 'react';",
     config: [
       {
@@ -28,6 +28,46 @@ const suites: Array<{
         name: "React",
       },
     ],
+    errors: [`"react" should be used with default imports`],
+    output: "import React from 'react';",
+  },
+  {
+    file: "prefer-default-instead-of-namespace-no-auto-fix.ts",
+    code: "import * as React from 'react';",
+    config: [
+      {
+        module: "react",
+        name: "React",
+        autofix: false,
+      },
+    ],
+    errors: [`"react" should be used with default imports`],
+    output: "import * as React from 'react';",
+  },
+
+  {
+    file: "allowed-namespace.ts",
+    code: "import * as React from 'react';",
+    config: [
+      {
+        module: "react",
+        name: "React",
+        preferNamespace: true,
+      },
+    ],
+  },
+  {
+    file: "prefer-namespace-instead-of-default.ts",
+    code: "import React from 'react';",
+    config: [
+      {
+        module: "react",
+        name: "React",
+        preferNamespace: true,
+      },
+    ],
+    errors: [`"react" should be used with "import *"`],
+    output: "import * as React from 'react';",
   },
 
   {
@@ -51,7 +91,9 @@ const suites: Array<{
         name: "React",
       },
     ],
-    errors: ['The preferred name of the react\'s default export is "React"'],
+    errors: [
+      'The preferred name of the react\'s default export is "React"\n"react" should be used with default imports',
+    ],
     output: "import React from 'react';",
   },
   {
@@ -90,9 +132,45 @@ const suites: Array<{
         name: "React",
       },
     ],
-    errors: [`The preferred name of the react's default export is "React"`],
+    errors: [
+      `The preferred name of the react's default export is "React"\n"react" should be used with default imports`,
+    ],
     output:
       "import React from 'react';const element = React.createElement('div');",
+  },
+
+  {
+    file: "autofix-content-prefer-namespace.ts",
+    code: "import react from 'react';const element = react.createElement('div');",
+    config: [
+      {
+        module: "react",
+        name: "React",
+        preferNamespace: true,
+      },
+    ],
+    errors: [
+      `The preferred name of the react's default export is "React"\n"react" should be used with "import *"`,
+    ],
+    output:
+      "import * as React from 'react';const element = React.createElement('div');",
+  },
+  {
+    file: "no-autofix-content-prefer-namespace.ts",
+    code: "import react from 'react';const element = react.createElement('div');",
+    config: [
+      {
+        module: "react",
+        name: "React",
+        preferNamespace: true,
+        autofix: false,
+      },
+    ],
+    errors: [
+      `The preferred name of the react's default export is "React"\n"react" should be used with "import *"`,
+    ],
+    output:
+      "import react from 'react';const element = react.createElement('div');",
   },
 ];
 
