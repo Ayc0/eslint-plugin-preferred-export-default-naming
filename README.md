@@ -4,7 +4,7 @@ This ESLint rule enforces preferred names for default exports
 
 ```js
 /*
-  eslint preferred-export-default-naming/preferred-export-default-naming: [
+  eslint blocz/preferred-export-default-naming: [
     "error", { "module": "react", "name": "React" }
   ]
 */
@@ -19,9 +19,9 @@ In `.eslintrc`:
 
 ```json
 {
-  "plugins": "preferred-export-default-naming",
+  "plugins": "blocz",
   "rules": {
-    "preferred-export-default-naming/preferred-export-default-naming": [
+    "blocz/preferred-export-default-naming": [
       "warn",
       {
         "modules": "classnames",
