@@ -44,7 +44,9 @@ const rule: Rule.RuleModule = {
         }
 
         const foundImportDefaultSpecifier = node.specifiers.find(
-          (specifier) => specifier.type === "ImportDefaultSpecifier"
+          (specifier) =>
+            specifier.type === "ImportDefaultSpecifier" ||
+            specifier.type === "ImportNamespaceSpecifier"
         );
         if (!foundImportDefaultSpecifier) {
           // No default import in this statement

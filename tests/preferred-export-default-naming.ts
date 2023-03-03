@@ -10,7 +10,7 @@ const suites: Array<{
   config: RuleConfig[];
 }> = [
   {
-    file: "allowed.ts",
+    file: "allowed-default.ts",
     code: "import React from 'react';",
     config: [
       {
@@ -20,7 +20,18 @@ const suites: Array<{
     ],
   },
   {
-    file: "error.ts",
+    file: "allowed-namespace.ts",
+    code: "import * as React from 'react';",
+    config: [
+      {
+        module: "react",
+        name: "React",
+      },
+    ],
+  },
+
+  {
+    file: "error-default.ts",
     code: "import react from 'react';",
     config: [
       {
@@ -32,8 +43,47 @@ const suites: Array<{
     output: "import React from 'react';",
   },
   {
-    file: "autofix-content.ts",
+    file: "error-namespace.ts",
+    code: "import * as react from 'react';",
+    config: [
+      {
+        module: "react",
+        name: "React",
+      },
+    ],
+    errors: ['The preferred name of the react\'s default export is "React"'],
+    output: "import React from 'react';",
+  },
+  {
+    file: "error-without-autofix.ts",
+    code: "import react from 'react';",
+    config: [
+      {
+        module: "react",
+        name: "React",
+        autofix: false,
+      },
+    ],
+    errors: ['The preferred name of the react\'s default export is "React"'],
+    output: "import react from 'react';",
+  },
+
+  {
+    file: "autofix-content-default.ts",
     code: "import react from 'react';const element = react.createElement('div');",
+    config: [
+      {
+        module: "react",
+        name: "React",
+      },
+    ],
+    errors: [`The preferred name of the react's default export is "React"`],
+    output:
+      "import React from 'react';const element = React.createElement('div');",
+  },
+  {
+    file: "autofix-content-namespace.ts",
+    code: "import * as react from 'react';const element = react.createElement('div');",
     config: [
       {
         module: "react",

@@ -1,3 +1,7 @@
+## Current
+
+Add support for `ImportNamespaceSpecifier`
+
 ## 1.1.1
 
 Only generate 1 report per import per file and autofix every variable at the same time to avoid desynchronization
