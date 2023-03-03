@@ -1,5 +1,11 @@
 import type { Rule } from "eslint";
 
+export interface RuleConfig {
+  module: string;
+  name: string;
+  autofix?: boolean;
+}
+
 const rule: Rule.RuleModule = {
   meta: {
     type: "suggestion",
@@ -23,7 +29,6 @@ const rule: Rule.RuleModule = {
         required: ["module", "name"],
         additionalProperties: false,
       },
-      uniqueItems: true,
       minItems: 1,
     },
   },
