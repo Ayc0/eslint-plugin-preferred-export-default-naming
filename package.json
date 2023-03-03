@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-blocz",
-  "description": "set preferred name for default imports",
+  "description": "Set of custom eslint misc rules",
   "version": "1.1.1",
   "license": "MIT",
   "author": {
