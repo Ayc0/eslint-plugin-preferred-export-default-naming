@@ -1,11 +1,12 @@
 import type { Rule } from "eslint";
 
-export interface RuleConfig {
+interface Config {
   module: string;
   name: string;
   autofix?: boolean;
   preferNamespace?: boolean;
 }
+export interface RuleConfig extends Array<Config> {}
 
 const rule: Rule.RuleModule = {
   meta: {

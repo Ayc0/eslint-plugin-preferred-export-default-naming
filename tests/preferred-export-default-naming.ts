@@ -7,7 +7,7 @@ const suites: Array<{
   code: string;
   output?: string;
   errors?: string[];
-  config: RuleConfig[];
+  config: RuleConfig;
 }> = [
   {
     file: "allowed-default.ts",
