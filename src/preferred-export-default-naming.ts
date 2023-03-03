@@ -1,8 +1,6 @@
-/**
- * @author Ayc0
- */
+import type { Rule } from "eslint";
 
-module.exports = {
+const rule: Rule.RuleModule = {
   meta: {
     type: "suggestion",
 
@@ -54,31 +52,35 @@ module.exports = {
 
         context.report({
           node: foundImportDefaultSpecifier,
-          loc: foundImportDefaultSpecifier.loc,
+          loc: foundImportDefaultSpecifier.loc!,
           message: `The preferred name of the ${foundOption.module}'s default export is "${foundOption.name}"`,
           fix(fixer) {
             if (foundOption.autofix === false) {
-              return;
+              return [];
             }
-            return [
+
+            const fixes = [
               // Fix import
               fixer.replaceText(foundImportDefaultSpecifier, foundOption.name),
-              // Fix every usage of this import
-              ...context
-                .getDeclaredVariables(foundImportDefaultSpecifier)
-                .reduce(
-                  (references, variable) => [
-                    ...references,
-                    ...variable.references.map((reference) =>
-                      fixer.replaceText(reference.identifier, foundOption.name)
-                    ),
-                  ],
-                  []
-                ),
             ];
+
+            // Fix every usage of this import
+            for (const variable of context.getDeclaredVariables(
+              foundImportDefaultSpecifier
+            )) {
+              fixes.push(
+                ...variable.references.map((reference) =>
+                  fixer.replaceText(reference.identifier, foundOption.name)
+                )
+              );
+            }
+
+            return fixes;
           },
         });
       },
     };
   },
 };
+
+export default rule;
