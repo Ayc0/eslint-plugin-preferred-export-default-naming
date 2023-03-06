@@ -17,7 +17,7 @@ import React from "react"; // this won't throw an error
 
 In `.eslintrc`:
 
-```json
+```jsonc
 {
   "plugins": "blocz",
   "rules": {
