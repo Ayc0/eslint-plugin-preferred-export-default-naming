@@ -38,7 +38,7 @@ const rule: Rule.RuleModule = {
   create(context) {
     return {
       ImportDeclaration(node) {
-        const foundOption = context.options.find(
+        const foundOption = (context.options as RuleConfig).find(
           (option) => node.source.value === option.module
         );
         if (!foundOption) {
