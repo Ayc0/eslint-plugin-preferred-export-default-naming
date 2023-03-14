@@ -76,14 +76,13 @@ This rule accepts an **array** of configs:
       },
       {
         "modules": "react-dom",
-        "name": "ReactDOM", // as autofix by default
-      }
+        "name": "ReactDOM" // as autofix by default
+      },
       {
         "modules": "react",
         "name": "React",
         "preferNamespace": true
-      },
-
+      }
     ]
   }
 }
