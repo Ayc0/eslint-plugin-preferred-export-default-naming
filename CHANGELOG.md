@@ -1,5 +1,8 @@
 ## Current
 
+- Fix output because of `exports.default =` was used before instead of `module.export =`
+- Move type exports in a `types` file (breaking change)
+
 ## 2.0.0
 
 ### `preferred-export-default-naming`

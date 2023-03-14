@@ -56,7 +56,7 @@ const rule: Rule.RuleModule = {
           return;
         }
 
-        const messages = [];
+        const messages: string[] = [];
 
         // If the import doesn’t match the setting
         if (foundImportDefaultSpecifier.local.name !== foundOption.name) {
