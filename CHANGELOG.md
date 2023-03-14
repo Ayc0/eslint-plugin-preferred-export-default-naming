@@ -5,6 +5,10 @@
 - Parse `ImportNamespaceSpecifier` in addition to `ImportDefaultSpecifier` (breaking change)
 - Add new config `preferNamespace` to tell if we want to use `import` or `import * as`
 
+### `prevent-imports`
+
+- Add new rule
+
 ## 1.1.1
 
 Only generate 1 report per import per file and autofix every variable at the same time to avoid desynchronization
