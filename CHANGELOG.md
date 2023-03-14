@@ -1,5 +1,7 @@
 ## Current
 
+## 2.0.0
+
 ### `preferred-export-default-naming`
 
 - Parse `ImportNamespaceSpecifier` in addition to `ImportDefaultSpecifier` (breaking change)
