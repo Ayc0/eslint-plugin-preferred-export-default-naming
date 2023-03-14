@@ -70,16 +70,16 @@ This rule accepts an **array** of configs:
     "blocz/preferred-export-default-naming": [
       "warn",
       {
-        "modules": "classnames",
+        "module": "classnames",
         "name": "classNames",
         "autofix": false // disable autofix
       },
       {
-        "modules": "react-dom",
+        "module": "react-dom",
         "name": "ReactDOM" // as autofix by default
       },
       {
-        "modules": "react",
+        "module": "react",
         "name": "React",
         "preferNamespace": true
       }
@@ -158,17 +158,17 @@ This rule accepts an **array** of configs:
     "blocz/prevent-imports": [
       "warn",
       {
-        "modules": "react-dom",
+        "module": "react-dom",
         "names": ["findDOMNode", "render"],
         "reason": "Deprecated methods"
       },
       {
-        "modules": "react",
+        "module": "react",
         "names": ["FC", "FunctionComponent", "VFC"],
         "reason": "Prefer React.VoidFunctionComponent"
       }
       {
-        "modules": "react",
+        "module": "react",
         "names": "Component", // no reason
       },
 
