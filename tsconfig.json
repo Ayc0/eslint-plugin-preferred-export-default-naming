@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "ES2018",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist"
-  }
+    "outDir": "dist",
+    "declaration": true
+  },
+  "exclude": ["tests/"]
 }
