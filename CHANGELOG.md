@@ -1,5 +1,7 @@
 ## Current
 
+## 2.0.1
+
 - Fix output because of `exports.default =` was used before instead of `module.export =`
 - Move type exports in a `types` file (breaking change)
 
