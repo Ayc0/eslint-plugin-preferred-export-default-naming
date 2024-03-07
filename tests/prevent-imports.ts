@@ -35,9 +35,9 @@ const suites: Array<{
       },
     ],
     errors: [
-      'You cannot import "a" from "b"',
-      'You cannot use "d" from "c": Prefer f',
-      'You cannot use "e" from "c": Prefer f',
+      'You shouldn’t import "a" from "b"',
+      'You shouldn’t use "d" from "c": Prefer f',
+      'You shouldn’t use "e" from "c": Prefer f',
     ],
   },
 
@@ -57,10 +57,10 @@ const suites: Array<{
       },
     ],
     errors: [
-      'You cannot import "b" from "a": B',
-      'You cannot import "c" from "a": C',
-      'You cannot use "b" from "a": B',
-      'You cannot use "c" from "a": C',
+      'You shouldn’t import "b" from "a": B',
+      'You shouldn’t import "c" from "a": C',
+      'You shouldn’t use "b" from "a": B',
+      'You shouldn’t use "c" from "a": C',
     ],
   },
 ];
