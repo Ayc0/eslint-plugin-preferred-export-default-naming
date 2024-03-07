@@ -2,13 +2,13 @@ This ESLint plugin comes with multiple rules to help you apply some pattern on v
 
 ## Rules
 
-- [Rules](#rules)
-  - [preferred-export-default-naming](#preferred-export-default-naming)
-    - [Configuration](#configuration)
-    - [Example](#example)
-  - [prevent-imports](#prevent-imports)
-    - [Configuration](#configuration-1)
-    - [Example](#example-1)
+1. [Rules](#rules)
+   1. [preferred-export-default-naming](#preferred-export-default-naming)
+      1. [Configuration](#configuration)
+      2. [Example](#example)
+   2. [prevent-imports](#prevent-imports)
+      1. [Configuration](#configuration-1)
+      2. [Example](#example-1)
 
 ### preferred-export-default-naming
 
@@ -100,7 +100,7 @@ This rule enforces a default name for export default & namespace. By default, de
 */
 
 // ❌
-import { findDOMNode } from "react-dom"; // findDOMNode cannot be imported
+import { findDOMNode } from "react-dom"; // findDOMNode shouldn’t be imported
 
 import * as ReactDOM from "react-dom";
 ReactDOM.findDOMNode(); // ❌ It recognizes that findDOMNode is from react-dom
@@ -123,14 +123,14 @@ You can specify a reason why multiple imports are forbidden:
 */
 
 // ❌
-import type { FC } from "react"; // Error: `You cannot import "FC" from "react": Prefer React.VoidFunctionComponent`
+import type { FC } from "react"; // Error: `You shouldn’t import "FC" from "react": Prefer React.VoidFunctionComponent`
 const MyComponent: FC = () => {};
 
 import React from "react";
-const MyComponent: React.FunctionComponent = () => {}; // Error: `You cannot use "FunctionComponent" from "react": Prefer React.VoidFunctionComponent`
+const MyComponent: React.FunctionComponent = () => {}; // Error: `You shouldn’t use "FunctionComponent" from "react": Prefer React.VoidFunctionComponent`
 
 import * as React from "react";
-const MyComponent: React.VFC = () => {}; // Error: `You cannot use "VFC" from "react": Prefer React.VoidFunctionComponent`
+const MyComponent: React.VFC = () => {}; // Error: `You shouldn’t use "VFC" from "react": Prefer React.VoidFunctionComponent`
 
 // ✅
 import * as React from "react";

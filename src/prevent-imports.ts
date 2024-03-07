@@ -87,7 +87,7 @@ const rule: Rule.RuleModule = {
             continue;
           }
 
-          let message = `You cannot import "${matchedName}" from "${foundOption.module}"`;
+          let message = `You shouldn’t import "${matchedName}" from "${foundOption.module}"`;
           if (foundOption.reason) {
             message += `: ${foundOption.reason}`;
           }
@@ -138,7 +138,7 @@ const rule: Rule.RuleModule = {
         ) {
           continue;
         }
-        let message = `You cannot use "${property}" from "${elementToCheck.module}"`;
+        let message = `You shouldn’t use "${property}" from "${elementToCheck.module}"`;
         if (elementToCheck.reason) {
           message += `: ${elementToCheck.reason}`;
         }
