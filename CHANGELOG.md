@@ -1,5 +1,9 @@
 ## Current
 
+## 2.0.2
+
+- Update error message to say "shouldn’t" instead of "cannot"
+
 ## 2.0.1
 
 - Fix output because of `exports.default =` was used before instead of `module.export =`
